@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active:
+     -dev
+---
+server:
+  port: 7001
+spring:
+ profiles: dev
+ application:
+  name: msc-config-eureka-server-dev
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+#   因为自己本身就是一个服务,这里需要设置不将自己注册到Eureka
+    register-with-eureka: false
+#   表示自己就是注册中心.职责就是维护服务,不需要进行检索.
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+---
+server:
+  port: 7001
+spring:
+ profiles: test
+ application:
+  name: msc-config-eureka-server-dev
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+#   因为自己本身就是一个服务,这里需要设置不将自己注册到Eureka
+    register-with-eureka: false
+#   表示自己就是注册中心.职责就是维护服务,不需要进行检索.
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
