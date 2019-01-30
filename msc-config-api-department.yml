@@ -62,7 +62,7 @@ mybatis:
   mapper-locations:
   - classpath:mybatis/mapper/**/*.xml
 spring:
-  profiles: dev
+  profiles: test
   application:
 #  微服务名称(重复)
     name: msc-department
